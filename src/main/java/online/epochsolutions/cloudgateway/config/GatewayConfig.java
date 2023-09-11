@@ -22,6 +22,7 @@ public class GatewayConfig {
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder routeLocatorBuilder){
         return routeLocatorBuilder.routes()
+//                /auth
                 .route(p ->p
                         .path("/auth/me")
                         .filters(f -> f.requestRateLimiter().configure(c-> c.setRateLimiter(redisRateLimiter())))
@@ -41,6 +42,35 @@ public class GatewayConfig {
                 .route(p ->p
                         .path("/auth/adminRegister")
                         .filters(f -> f.circuitBreaker((c-> c.setName("eTicketor").setFallbackUri("/defaultFallback"))))
+                        .uri("http://localhost:8081"))
+
+//                eTicketor/event
+
+                .route(p ->p
+                        .path("eTicketor/event/save")
+                        .uri("http://localhost:8081"))
+                .route(p ->p
+                        .path("eTicketor/event/events/user")
+                        .uri("http://localhost:8081"))
+                .route(p ->p
+                        .path("eTicketor/event/getList")
+                        .uri("http://localhost:8081"))
+                .route(p ->p
+                        .path("eTicketor/event/getEvent/{id}")
+                        .uri("http://localhost:8081"))
+                .route(p ->p
+                        .path("eTicketor/event/delete/{id}")
+                        .uri("http://localhost:8081"))
+                .route(p ->p
+                        .path("eTicketor/event/update/{id}")
+                        .uri("http://localhost:8081"))
+
+//                eTicketor/ticket
+                .route(p ->p
+                        .path("/eTicketor/ticket/buyTicket")
+                        .uri("http://localhost:8081"))
+                .route(p -> p
+                        .path("/eTicketor/ticket/viewTicket")
                         .uri("http://localhost:8081"))
                 .build();
     }
