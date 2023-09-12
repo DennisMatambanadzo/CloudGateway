@@ -46,6 +46,7 @@ public class GatewayConfig {
 
 //                eTicketor/event
 
+
                 .route(p ->p
                         .path("/eTicketor/event/save")
                         .uri("http://localhost:8081"))
