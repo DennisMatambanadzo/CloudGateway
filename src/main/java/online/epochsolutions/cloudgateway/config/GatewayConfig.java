@@ -47,22 +47,22 @@ public class GatewayConfig {
 //                eTicketor/event
 
                 .route(p ->p
-                        .path("eTicketor/event/save")
+                        .path("/eTicketor/event/save")
                         .uri("http://localhost:8081"))
                 .route(p ->p
-                        .path("eTicketor/event/events/user")
+                        .path("/eTicketor/event/events/user")
                         .uri("http://localhost:8081"))
                 .route(p ->p
-                        .path("eTicketor/event/getList")
+                        .path("/eTicketor/event/getList")
                         .uri("http://localhost:8081"))
                 .route(p ->p
-                        .path("eTicketor/event/getEvent/{id}")
+                        .path("/eTicketor/event/getEvent/{id}")
                         .uri("http://localhost:8081"))
                 .route(p ->p
-                        .path("eTicketor/event/delete/{id}")
+                        .path("/eTicketor/event/delete/{id}")
                         .uri("http://localhost:8081"))
                 .route(p ->p
-                        .path("eTicketor/event/update/{id}")
+                        .path("/eTicketor/event/update/{id}")
                         .uri("http://localhost:8081"))
 
 //                eTicketor/ticket
